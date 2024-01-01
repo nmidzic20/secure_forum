@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" type="text/css" href="./css/style.css" />
+	<link rel="icon" href="./assets/favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon" />
 </head>
 <body>
 	<header>
@@ -10,8 +14,11 @@
 			<input type="submit" value="login" />
 		</form>
 	</header>
-	<nav>
-		Navigation, navigation on the wall, tell me who is the laziest of all
+	<nav class="navbar">
+		<a href="home.html">Home</a>
+		<a href="profile.html">Profile</a>
+		<a href="login.html">Login</a>
+		<a href="registration.html">Registration</a>
 	</nav>
 	<br>
 	<section>
@@ -87,6 +94,7 @@
 	</section>
 	<footer>
 		&copy; SIS 2024.
+		<a href="https://www.flaticon.com/free-icons/bulletin" title="bulletin icons">Bulletin icons created by Alfredo Creates - Flaticon</a>
 	</footer>
 </body>
 </html>
