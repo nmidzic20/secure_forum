@@ -13,8 +13,7 @@ body {
   font-family: "OpenSans-Regular", sans-serif;
 }
 
-main,
-footer {
+main {
   padding: 20px;
 }
 
@@ -22,6 +21,12 @@ footer {
   display: flex;
   justify-content: center;
   padding-top: 15px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #333;
 }
 
 /* Navbar */
@@ -58,4 +63,59 @@ footer {
 
 .navbar a + a {
   margin-left: 20px;
+}
+
+/* Login and registration */
+.login-container,
+.registration-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h2,
+.registration-container h2 {
+  text-align: center;
+  color: #333;
+}
+
+.login-container form,
+.registration-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-container label,
+.registration-container label {
+  margin-bottom: 8px;
+}
+
+.login-container input,
+.registration-container input {
+  padding: 10px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 20px;
+  padding: 10px;
+  background-color: #ce2424;
+  color: #fff;
+}
+
+button:hover {
+  background-color: #a21414;
+}
+
+.login-container p,
+.registration-container p {
+  text-align: center;
+  margin-top: 16px;
 }
