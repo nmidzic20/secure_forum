@@ -29,6 +29,54 @@ footer {
   color: #333;
 }
 
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 20px;
+  padding: 10px;
+  background-color: #ce2424;
+  color: #fff;
+}
+
+button:hover {
+  background-color: #a21414;
+}
+
+.container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.container h2 {
+  text-align: center;
+  color: #333;
+}
+
+.container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.container label {
+  margin-bottom: 8px;
+}
+
+.container input {
+  padding: 10px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.container p {
+  text-align: center;
+  margin-top: 16px;
+}
+
 /* Navbar */
 .navbar {
   background-color: rgb(52, 48, 48);
@@ -65,57 +113,23 @@ footer {
   margin-left: 20px;
 }
 
-/* Login and registration */
-.login-container,
-.registration-container {
-  max-width: 400px;
-  margin: 50px auto;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.login-container h2,
-.registration-container h2 {
-  text-align: center;
-  color: #333;
-}
-
-.login-container form,
-.registration-container form {
+/* Profile */
+.user-details {
   display: flex;
-  flex-direction: column;
+  align-items: center;
 }
 
-.login-container label,
-.registration-container label {
-  margin-bottom: 8px;
+.user-details img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-right: 20px;
 }
 
-.login-container input,
-.registration-container input {
-  padding: 10px;
-  margin-bottom: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+.user-info {
+  flex-grow: 1;
 }
 
-button {
-  cursor: pointer;
-  border: none;
-  border-radius: 20px;
-  padding: 10px;
-  background-color: #ce2424;
-  color: #fff;
-}
-
-button:hover {
-  background-color: #a21414;
-}
-
-.login-container p,
-.registration-container p {
-  text-align: center;
-  margin-top: 16px;
+.user-info p {
+  margin-bottom: 10px;
 }
