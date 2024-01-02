@@ -1,8 +1,11 @@
 <?php
-$host = 'localhost';
-$db   = 'secure_forum';
-$user = '';
-$pass = '';
+
+$config = include('db_config.php');
+
+$host = $config['host'];
+$db   = $config['db'];
+$user = $config['user'];
+$pass = $config['pass'];
 
 try {
     $pdo = new PDO("mysql:host=$host", $user, $pass);
