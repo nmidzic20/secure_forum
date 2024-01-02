@@ -20,9 +20,15 @@
     <header>
       <nav class="navbar">
         <a href="../index">Home</a>
-        <a href="profile.html">Profile</a>
-        <a href="login.html">Log In</a>
-        <a class="active-page" href="registration.html">Registration</a>
+          <?php
+          if (isset($_SESSION['loggedin'])) {
+              echo '<a href="profile.php">Profile</a>';
+              echo '<a href="../src/logout.php">Log Out</a>';
+          } else {
+              echo '<a href="login.php">Log In</a>';
+              echo '<a class="active-page" href="registration.php">Registration</a>';
+          }
+          ?>
       </nav>
       <title>Registration</title>
     </header>
@@ -50,7 +56,7 @@
           <button type="submit">Register</button>
         </form>
 
-        <p>Already have an account? <a href="./login.html">Login here</a>.</p>
+        <p>Already have an account? <a href="login.php">Login here</a>.</p>
       </div>
     </main>
     <footer>
