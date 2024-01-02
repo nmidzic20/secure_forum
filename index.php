@@ -3,11 +3,13 @@
 <head>
 	<meta charset="UTF-8" />
 	<link rel="stylesheet" type="text/css" href="./css/style.css" />
+	<link rel="stylesheet" type="text/css" href="../css/home.css" />
 	<link rel="icon" href="./assets/favicon.ico" type="image/x-icon" />
 	<link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon" />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;500;600;700&family=Poppins:wght@200&family=Ranchers&display=swap" rel="stylesheet">
+	<script src="./js/script.js"></script>
 </head>
 <body>
 	<header>
@@ -20,6 +22,8 @@
 		<title>Home</title>
 	</header>
 	<main>
+		<button id="post-content-btn">New topic</button>
+
 		<section>
 			<div class="thread">
 				<div id="somethingrandomorsomethingidk" class="message">
@@ -99,6 +103,21 @@
 			<a href="https://www.flaticon.com/free-icons/bulletin" title="bulletin icons">Bulletin icons created by Alfredo Creates - Flaticon</a>
 		</div>
 	</footer>
+	<div id="new-topic-submission" class="modal">
+		<div class="modal-content">
+			<span class="close">&times;</span>
+			<h2>New Topic Submission</h2>
+			<label for="topic-title">Title:</label>
+			<input type="text" id="topic-title" placeholder="Enter your topic title...">
+			<label for="topic-content">Content:</label>
+			<textarea id="topic-content" placeholder="Enter your topic content here..."></textarea>
+			<input type="file" id="file-upload" accept=".pdf, .doc, .docx, .txt"> <!-- Add accepted file types as needed -->
+			<div class="button-row">
+				<button id="post-topic-btn">Post new topic</button>
+				<button id="cancel-btn">Cancel</button>
+			</div>
+		</div>
+	</div>
 	<!--<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 	<script>
 		$('.see-replies').parent('blockquote').css({
