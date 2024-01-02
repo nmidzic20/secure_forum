@@ -35,7 +35,7 @@
     <main>
       <div class="container">
         <h2>Registration</h2>
-        <form id="registration-form" method="post" action="/registration.php">
+        <form id="registration-form" method="post" action="../src/registration.php">
           <label for="username">Username:</label>
           <input type="text" id="username" name="username" required />
 
