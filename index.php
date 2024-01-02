@@ -1,3 +1,14 @@
+<?php
+
+session_start();
+
+if (!isset($_SESSION['loggedin'])) {
+    header("Location: html/login.php");
+    exit;
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,9 +26,15 @@
 	<header>
 		<nav class="navbar">
 			<a class="active-page" href="">Home</a>
-			<a href="html/profile.html">Profile</a>
-			<a href="html/login.html">Log In</a>
-			<a href="html/registration.html">Registration</a>
+            <?php
+                if (isset($_SESSION['loggedin'])) {
+                    echo '<a href="html/profile.php">Profile</a>';
+                    echo '<a href="src/logout.php">Log Out</a>';
+                } else {
+                    echo '<a href="html/login.php">Log In</a>';
+                    echo '<a href="html/registration.php">Registration</a>';
+                }
+            ?>
 		</nav>
 		<title>Home</title>
 	</header>

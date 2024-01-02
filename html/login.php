@@ -20,37 +20,47 @@
     <header>
       <nav class="navbar">
         <a href="../index">Home</a>
-        <a href="profile.html">Profile</a>
-        <a href="login.html">Log In</a>
-        <a class="active-page" href="registration.html">Registration</a>
+          <?php
+          if (isset($_SESSION['loggedin'])) {
+              echo '<a href="profile.php">Profile</a>';
+              echo '<a href="../src/logout.php">Log Out</a>';
+          } else {
+              echo '<a class="active-page" href="login.php">Log In</a>';
+              echo '<a href="registration.php">Registration</a>';
+          }
+          ?>
       </nav>
-      <title>Registration</title>
+      <title>Login</title>
     </header>
     <main>
       <div class="container">
-        <h2>Registration</h2>
-        <form id="registration-form" method="post" action="/registration.php">
+        <h2>Log In</h2>
+        <form id="login-form" method="post" action="/src/login.php">
           <label for="username">Username:</label>
-          <input type="text" id="username" name="username" required />
-
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required />
-
-          <label for="password">Password:</label>
-          <input type="password" id="password" name="password" required />
-
-          <label for="confirm-password">Confirm Password:</label>
           <input
-            type="password"
-            id="confirm-password"
-            name="confirm-password"
+            type="text"
+            id="username"
+            name="username"
+            placeholder="username"
             required
           />
 
-          <button type="submit">Register</button>
+          <label for="password">Password:</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="********"
+            required
+          />
+
+          <button type="submit">Login</button>
         </form>
 
-        <p>Already have an account? <a href="./login.html">Login here</a>.</p>
+        <p>
+          Don't have an account?
+          <a href="registration.php">Register here</a>.
+        </p>
       </div>
     </main>
     <footer>

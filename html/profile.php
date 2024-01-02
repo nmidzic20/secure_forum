@@ -21,9 +21,8 @@
     <header>
       <nav class="navbar">
         <a href="../index">Home</a>
-        <a class="active-page" href="profile.html">Profile</a>
-        <a href="login.html">Log In</a>
-        <a href="registration.html">Registration</a>
+        <a class="active-page" href="profile.php">Profile</a>
+        <a href="../src/logout.php">Log Out</a>
       </nav>
       <title>Profile</title>
     </header>
