@@ -1,16 +1,11 @@
 /* General */
-@font-face {
-  font-family: "OpenSans-Regular";
-  src: url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=swap");
-}
-
 body {
   margin: 0;
   padding: 0px;
   padding-top: 50px;
   overflow-x: hidden;
   background-color: #cdd7e1;
-  font-family: "OpenSans-Regular", sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 main {
@@ -23,11 +18,11 @@ main {
   padding-top: 15px;
 }
 
-footer {
+/*footer {
   text-align: center;
   padding: 20px;
   color: #333;
-}
+}*/
 
 button {
   cursor: pointer;
@@ -111,6 +106,60 @@ button:hover {
 
 .navbar a + a {
   margin-left: 20px;
+}
+
+/* Home */
+.thread {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.message {
+  margin-bottom: 15px;
+}
+
+.message summary {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.message div,
+.reply div {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+.reply {
+  background-color: #eaeaea;
+  margin-left: 20px;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+/*details {
+  background-color: aliceblue;
+}*/
+
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+footer a {
+  color: #fff;
+}
+
+footer img {
+  vertical-align: middle;
+  margin-right: 5px;
 }
 
 /* Profile */
