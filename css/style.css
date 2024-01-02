@@ -31,6 +31,7 @@ button {
   padding: 10px;
   background-color: #ce2424;
   color: #fff;
+  margin: 10px;
 }
 
 button:hover {
@@ -108,41 +109,6 @@ button:hover {
   margin-left: 20px;
 }
 
-/* Home */
-.thread {
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 20px;
-  margin-bottom: 20px;
-  padding: 10px;
-}
-
-.message {
-  margin-bottom: 15px;
-}
-
-.message summary {
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.message div,
-.reply div {
-  margin-top: 10px;
-  padding-left: 20px;
-}
-
-.reply {
-  background-color: #eaeaea;
-  margin-left: 20px;
-  padding: 10px;
-  border-radius: 20px;
-}
-
-/*details {
-  background-color: aliceblue;
-}*/
-
 footer {
   background-color: #333;
   color: #fff;
@@ -160,25 +126,4 @@ footer a {
 footer img {
   vertical-align: middle;
   margin-right: 5px;
-}
-
-/* Profile */
-.user-details {
-  display: flex;
-  align-items: center;
-}
-
-.user-details img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  margin-right: 20px;
-}
-
-.user-info {
-  flex-grow: 1;
-}
-
-.user-info p {
-  margin-bottom: 10px;
 }
