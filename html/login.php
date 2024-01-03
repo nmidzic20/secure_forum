@@ -19,7 +19,7 @@
   <body>
     <header>
       <nav class="navbar">
-        <a href="../index">Home</a>
+        <a href="../index.php">Home</a>
           <?php
           if (isset($_SESSION['loggedin'])) {
               echo '<a href="profile.php">Profile</a>';
@@ -35,7 +35,7 @@
     <main>
       <div class="container">
         <h2>Log In</h2>
-        <form id="login-form" method="post" action="/src/login.php">
+        <form id="login-form" method="post" action="../src/login.php">
           <label for="username">Username:</label>
           <input
             type="text"
