@@ -1,8 +1,8 @@
 <?php
 
 return array(
-    'host' => 'localhost',
+    'host' => '127.0.0.1',
     'db'   => 'secure_forum',
-    'user' => '',
-    'pass' => '',
+    'user' => 'dbuser',
+    'pass' => 'dbpass',
 );

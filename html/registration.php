@@ -19,7 +19,7 @@
   <body>
     <header>
       <nav class="navbar">
-        <a href="../index">Home</a>
+        <a href="../index.php">Home</a>
           <?php
           if (isset($_SESSION['loggedin'])) {
               echo '<a href="profile.php">Profile</a>';

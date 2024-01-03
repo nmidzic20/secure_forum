@@ -20,7 +20,7 @@
   <body>
     <header>
       <nav class="navbar">
-        <a href="../index">Home</a>
+        <a href="../index.php">Home</a>
         <a class="active-page" href="profile.php">Profile</a>
         <a href="../src/logout.php">Log Out</a>
       </nav>
