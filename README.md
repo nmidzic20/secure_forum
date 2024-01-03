@@ -10,4 +10,4 @@ A highly secure web messaging board made for Security of Information Systems cou
 
 # Docker
 - Install Docker
-- from root directory, run `docker-compose up --build -d`
+- from project root directory, run `docker-compose up --build -d`
