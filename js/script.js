@@ -19,8 +19,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
   var postTopicBtn = document.getElementById("post-topic-btn");
   postTopicBtn.addEventListener("click", function () {
-    console.log(document.getElementById("topic-content").value);
+    var title = document.getElementById('topic-title').value;
+    var content = document.getElementById('topic-content').value;
+    var file = document.getElementById('file-upload').files[0];
+
+    var formData = new FormData();
+    formData.append('title', title);
+    formData.append('content', content);
+    formData.append('file', file);
+
     modal.style.display = "none";
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', './src/topic.php', true);
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            alert('Topic posted successfully!');
+        } else {
+            alert('Error posting topic. Please try again.');
+        }
+    };
+    xhr.send(formData);
   });
 
   var cancelBtn = document.getElementById("cancel-btn");
