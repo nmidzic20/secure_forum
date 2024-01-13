@@ -11,3 +11,5 @@ A highly secure web messaging board made for Security of Information Systems cou
 # Docker
 - Install Docker
 - from project root directory, run `docker-compose up --build -d`
+
+  This will create Docker database, which you can start each time before running the web application.
