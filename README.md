@@ -6,7 +6,8 @@ A highly secure web messaging board made for Security of Information Systems cou
 - Open a terminal and `cd` into the directory
 - Run `php -S localhost:8000` (you can substitute 8000 with any other available port)
 - Open localhost:8000 in your browser
-- to create a database, put your credentials for database in `database/db_config.php` file and in terminal run `php database/create_database.php`
+
+  If you want to create a local database, put your credentials for database in `database/db_config.php` file and in terminal run `php database/create_database.php`. Alternatively, read instructions below for creating a Docker database.
 
 # Docker
 - Install Docker
