@@ -22,10 +22,10 @@ CREATE TABLE IF NOT EXISTS topic (
 );
 
 INSERT INTO user (username, email, password) 
-VALUES ('user', 'user@gmail.com', '123456');
+VALUES ('admin', 'admin@gmail.com', '123456');
 
 INSERT INTO user (username, email, password) 
-VALUES ('admin', 'admin@gmail.com', '123456');
+VALUES ('user', 'user@gmail.com', '123456');
 
 INSERT INTO user (username, email, password) 
 VALUES ('johndoe', 'johndoe@gmail.com', '123456');
