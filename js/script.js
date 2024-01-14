@@ -35,6 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
     xhr.onload = function() {
         if (xhr.status === 200) {
             alert('Topic posted successfully!');
+            window.location.reload();
         } else {
             alert('Error posting topic. Please try again.');
         }
