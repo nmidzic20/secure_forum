@@ -11,6 +11,6 @@ A highly secure web messaging board made for Security of Information Systems cou
 
 # Docker
 - Install Docker
-- from project root directory, run `docker-compose up --build -d`
+- From project root directory, run `docker-compose up --build -d`
 
-  This will create Docker database, which you can start each time before running the web application.
+  It is enough to run this command only once when the project is first installed. The command will create Docker container for MySQL database with initial data. The Docker container should be started each time before running the web application.
