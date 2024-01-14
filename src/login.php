@@ -17,19 +17,22 @@ try {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $stmt = $pdo->prepare("SELECT * FROM user WHERE username = :username AND password = :password");
-    $stmt->execute(['username' => $username, 'password' => $password]);
-    $user = $stmt->fetch();
+    $sql = "SELECT * FROM user WHERE username = '" . $username . "' AND password = '" . $password . "'";
+    $result = $pdo->query($sql);
+    $user = $result->fetchAll(PDO::FETCH_ASSOC);
+
 
     if ($user) {
         $_SESSION['loggedin'] = true;
+        $user_json = json_encode($user);
+        echo "<script>var user = '$user_json'; console.log(user);</script>";
+        echo "<script>window.location.href = '../index.php';</script>";
 
-        header("Location: ../index.php");
-
-        exit;
     } else {
+  
         echo "Login failed";
     }
+
 } catch(PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
 }
