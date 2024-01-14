@@ -1,5 +1,5 @@
 <?php
-
+include('./src/load_topic.php');
 session_start();
 
 if (!isset($_SESSION['loggedin'])) {
@@ -645,7 +645,20 @@ if (!isset($_SESSION['loggedin'])) {
 				</div>
 			</div>
 		</section>
-
+		<section>
+			<?php foreach ($topics as $topic): ?>
+                <div class="thread">
+				<div id="somethingrandomorsomethingidk1" class="message">
+						<details>
+							<summary>
+								<?php echo $topic['title']; ?>
+							</summary>
+							<div><?php echo $topic['content']; ?></div>
+						</details>
+					</div>
+                </div>
+            <?php endforeach; ?>
+		</section>
 	</main>
 	<footer>
 		<div>&copy; SIS 2024.</div>
