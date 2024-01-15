@@ -25,6 +25,7 @@ CREATE TABLE IF NOT EXISTS topic (
 CREATE TABLE IF NOT EXISTS comment (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     content TEXT NOT NULL,
+    file_path VARCHAR(255),
     topic_id INT UNSIGNED NOT NULL,
     user_id INT UNSIGNED NOT NULL,
     date_of_comment TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -38,17 +39,17 @@ VALUES
     ('user', 'user@gmail.com', '123456'),
     ('johndoe', 'johndoe@gmail.com', '123456');
 
-INSERT INTO topic (title, content)
+INSERT INTO topic (title, content, file_path)
 VALUES
-    ('Android is better with Kotlin', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl vitae aliquam ultricies, nunc nisl aliquet nunc, vitae aliquam nisl nunc vitae nisl. Donec euismod, nisl vitae aliquam ultricies, nunc nisl aliquet nunc, vitae aliquam nisl nunc vitae nisl. Donec euismod, nisl vitae aliquam ultricies, nunc nisl aliquet nunc.'),
-    ('Android is better with Java', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl vitae aliquam ultricies, nunc nisl aliquet nunc, vitae aliquam nisl nunc vitae nisl. Donec euismod, nisl vitae aliquam ultricies, nunc nisl aliquet nunc, vitae aliquam nisl nunc vitae nisl.'),
-    ('Android is better with Flutter', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl vitae aliquam ultricies, nunc nisl aliquet nunc, vitae aliquam nisl nunc vitae nisl.');
+    ('Android is better with Kotlin', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl vitae aliquam ultricies, nunc nisl aliquet nunc, vitae aliquam nisl nunc vitae nisl. Donec euismod, nisl vitae aliquam ultricies, nunc nisl aliquet nunc, vitae aliquam nisl nunc vitae nisl. Donec euismod, nisl vitae aliquam ultricies, nunc nisl aliquet nunc.', NULL),
+    ('Android is better with Java', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl vitae aliquam ultricies, nunc nisl aliquet nunc, vitae aliquam nisl nunc vitae nisl. Donec euismod, nisl vitae aliquam ultricies, nunc nisl aliquet nunc, vitae aliquam nisl nunc vitae nisl.', 'user_uploads/1.png'),
+    ('Android is better with Flutter', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl vitae aliquam ultricies, nunc nisl aliquet nunc, vitae aliquam nisl nunc vitae nisl.', 'user_uploads/2.exe');
 
-INSERT INTO comment (content, topic_id, user_id)
+INSERT INTO comment (content, file_path, topic_id, user_id)
 VALUES
-    ('Great post, thanks for sharing!', 1, 2),
-    ('I agree with you!', 1, 3),
-    ('I disagree with you!', 1, 1),
-    ('I think you are wrong, because you are wrong!', 2, 1),
-    ('I think you are wrong, because you are wrong!', 3, 1);
+    ('Great post, thanks for sharing!', NULL, 1, 2),
+    ('I agree with you!', 'user_uploads/1.png', 1, 3),
+    ('I disagree with you!', 'user_uploads/2.exe', 1, 1),
+    ('I think you are wrong, because you are wrong!', NULL, 2, 1),
+    ('I think you are wrong, because you are wrong!', NULL, 3, 1);
 

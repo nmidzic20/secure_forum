@@ -21,11 +21,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $targetFilePath = $targetDir . $fileName;
         move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath);
 
+        $relativeDir = "user_uploads/";
+        $relativeTargetFilePath = $relativeDir . $fileName;
+
         $title = $_POST['title'];
         $content = $_POST['content'];
 
         $stmt = $pdo->prepare("INSERT INTO topic (title, content, file_path) VALUES (:title, :content, :file_path)");
-        $stmt->execute(['title' => $title, 'content' => $content, 'file_path' => $targetFilePath]);
+        $stmt->execute(['title' => $title, 'content' => $content, 'file_path' => $relativeTargetFilePath]);
 
         echo json_encode(['status' => 'success', 'message' => 'Topic posted successfully']);
     } catch(PDOException $e) {
