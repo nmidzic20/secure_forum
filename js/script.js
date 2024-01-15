@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
     modal.style.display = "none";
 
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "./api/topic.php", true);
+    xhr.open("POST", "./api/post_topic.php", true);
     xhr.onload = function () {
       if (xhr.status === 200) {
         alert("Topic posted successfully!");
