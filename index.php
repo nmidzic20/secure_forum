@@ -1,6 +1,7 @@
 <?php
 
 global $comments, $topics;
+$USER_UPLOADS = 'user_uploads/';
 
 include ('./api/get-topic.php');
 include ('./api/get-comments.php');
@@ -49,25 +50,55 @@ if (!isset($_SESSION['loggedin'])) {
         <?php foreach ($topics as $topic): ?>
             <section>
                 <div class="thread">
-                    <div id="somethingrandomorsomethingidk1" class="message">
+					<div id="topic<?php echo $topic['id'] ?>" class="message">
                         <details>
                             <summary>
                                 <?php echo $topic['title']; ?>
                             </summary>
 
-                            <div><?php echo $topic['content']; ?></div>
+                            <div>
+								<?php echo $topic['content']; ?>
 
-                            <blockquote id="randID6" class="reply">
+								<?php
+									if($topic['file_name'] != null) {
+										echo "<br>";
+
+										$finfo = new finfo(FILEINFO_MIME_TYPE);
+
+										if (str_contains($finfo->file($USER_UPLOADS.$topic['file_name']), 'image'))
+											echo "<img src=\"{$USER_UPLOADS}{$topic['file_name']}\" width=\"100rem\"/>";
+										else
+											echo "<a href=\"{$USER_UPLOADS}{$topic['file_name']}\">File attachment</a>";
+									}
+								?>
+							</div>
+
+                            <blockquote id="comments<?php echo $topic['id'] ?>" class="comment">
                                 <?php foreach ($comments as $comment): ?>
                                     <?php if ($comment['topic_id'] == $topic['id']): ?>
-                                            <details>
-                                                <summary>
-                                                    <?php echo $comment['username']; ?>
-                                                </summary>
-                                                <div>
-                                                    <?php echo $comment['content']; ?>
-                                                </div>
-                                            </details>
+										<div id="comment<?php echo $comment['id'] ?>" class="message">
+											<details>
+												<summary>
+													<?php echo $comment['username']; ?>
+												</summary>
+												<div>
+													<?php echo $comment['content']; ?>
+
+													<?php
+														if($comment['file_name'] != null) {
+															echo "<br>";
+
+															$finfo = new finfo(FILEINFO_MIME_TYPE);
+
+															if (str_contains($finfo->file($USER_UPLOADS.$comment['file_name']), 'image'))
+																echo "<img src=\"{$USER_UPLOADS}{$comment['file_name']}\" width=\"100rem\"/>";
+															else
+																echo "<a href=\"{$USER_UPLOADS}{$comment['file_name']}\">File attachment</a>";
+														}
+													?>
+												</div>
+											</details>
+										</div>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
                             </blockquote>
