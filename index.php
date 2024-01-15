@@ -1,7 +1,6 @@
 <?php
 
 global $comments, $topics;
-$USER_UPLOADS = 'user_uploads/';
 
 include ('./api/get-topic.php');
 include ('./api/get-comments.php');
@@ -60,15 +59,15 @@ if (!isset($_SESSION['loggedin'])) {
 								<?php echo $topic['content']; ?>
 
 								<?php
-									if($topic['file_name'] != null) {
+									if($topic['file_path'] != null) {
 										echo "<br>";
 
 										$finfo = new finfo(FILEINFO_MIME_TYPE);
 
-										if (str_contains($finfo->file($USER_UPLOADS.$topic['file_name']), 'image'))
-											echo "<img src=\"{$USER_UPLOADS}{$topic['file_name']}\" width=\"100rem\"/>";
+										if (str_contains($finfo->file($topic['file_path']), 'image'))
+											echo "<img src=\"{$topic['file_path']}\" width=\"100rem\"/>";
 										else
-											echo "<a href=\"{$USER_UPLOADS}{$topic['file_name']}\">File attachment</a>";
+											echo "<a href=\"{$topic['file_path']}\">File attachment</a>";
 									}
 								?>
 							</div>
@@ -85,15 +84,15 @@ if (!isset($_SESSION['loggedin'])) {
 													<?php echo $comment['content']; ?>
 
 													<?php
-														if($comment['file_name'] != null) {
+														if($comment['file_path'] != null) {
 															echo "<br>";
 
 															$finfo = new finfo(FILEINFO_MIME_TYPE);
 
-															if (str_contains($finfo->file($USER_UPLOADS.$comment['file_name']), 'image'))
-																echo "<img src=\"{$USER_UPLOADS}{$comment['file_name']}\" width=\"100rem\"/>";
+															if (str_contains($finfo->file($comment['file_path']), 'image'))
+																echo "<img src=\"{$comment['file_path']}\" width=\"100rem\"/>";
 															else
-																echo "<a href=\"{$USER_UPLOADS}{$comment['file_name']}\">File attachment</a>";
+																echo "<a href=\"{$comment['file_path']}\">File attachment</a>";
 														}
 													?>
 												</div>
