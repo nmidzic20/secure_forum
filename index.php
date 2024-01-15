@@ -144,16 +144,24 @@ if (!isset($_SESSION['loggedin'])) {
 	<script>
 		function deleteTopic(id) {
 			if(window.confirm("The chosen topic and all of it's comments will be deleted. Proceed?")) {
-				fetch("api/delete-topic.php?id="+id)
-				.then(res => res.text())
-				.then((text) => {
-					var status = JSON.parse(text).status;
-					var message = JSON.parse(text).message
-					if(status == "success")
-						window.alert(message)
-					else throw new Error(message)})
-				.then(window.location.reload())
-				.catch(err => window.alert(err));
+
+				var xhr = new XMLHttpRequest();
+				xhr.open("GET", "api/delete-topic.php?id=" + id, true);
+				xhr.onload = function () {
+					if (xhr.status === 200) {
+						let response = JSON.parse(xhr.responseText);
+
+						if (response.status === "success") {
+							alert("Topic deleted successfully!");
+							window.location.reload();
+						} else {
+							alert("Error deleting topic: " + response.message);
+						}
+					} else {
+						alert("Error deleting topic. Please try again.");
+					}
+				};
+				xhr.send();
 			}
 		}
 	</script>
