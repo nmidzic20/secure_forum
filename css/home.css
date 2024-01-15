@@ -7,17 +7,15 @@
   padding: 10px;
 }
 
-.message {
+.topic {
   margin-bottom: 15px;
 }
 
-.message summary {
+.topic summary {
   font-weight: bold;
   cursor: pointer;
 }
 
-.message div,
-.reply div {
 .topicMenu * {
   display: inline-block;
 }
@@ -27,12 +25,14 @@
   font-weight: bold;
 }
 
+.topic div,
+.comment div {
   margin-top: 10px;
   margin-bottom: 10px;
   padding-left: 20px;
 }
 
-.reply {
+.comment {
   background-color: #eaeaea;
   margin-left: 20px;
   padding: 10px;
