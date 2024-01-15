@@ -27,11 +27,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt = $pdo->prepare("INSERT INTO topic (title, content, file_path) VALUES (:title, :content, :file_path)");
         $stmt->execute(['title' => $title, 'content' => $content, 'file_path' => $targetFilePath]);
 
-        header("Location: ../index.php");
-        exit;
+        echo json_encode(['status' => 'success', 'message' => 'Topic posted successfully']);
     } catch(PDOException $e) {
-        echo "Connection failed: " . $e->getMessage();
+        echo json_encode(['status' => 'error', 'message' => 'Error posting topic: ' . $e->getMessage()]);
     }
 } else {
-    echo json_encode(['status' => 'error', 'message' => 'Invalid request method']);
-}
+    echo json_encode(['status' => 'error', 'message' => 'Invalid request method']);}

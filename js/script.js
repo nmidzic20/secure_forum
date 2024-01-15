@@ -31,11 +31,17 @@ document.addEventListener("DOMContentLoaded", function () {
     modal.style.display = "none";
 
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "./api/post_topic.php", true);
+    xhr.open("POST", "./api/post-topic.php", true);
     xhr.onload = function () {
       if (xhr.status === 200) {
-        alert("Topic posted successfully!");
-        window.location.reload();
+        let response = JSON.parse(xhr.responseText);
+
+        if (response.status === "success") {
+          alert("Topic posted successfully!");
+          window.location.reload();
+        } else {
+          alert("Error posting topic: " + response.message);
+        }
       } else {
         alert("Error posting topic. Please try again.");
       }

@@ -1,5 +1,5 @@
 <?php
-include('./api/get_topic.php');
+include('./api/get-topic.php');
 session_start();
 
 if (!isset($_SESSION['loggedin'])) {
