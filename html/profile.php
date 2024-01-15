@@ -22,7 +22,7 @@
       <nav class="navbar">
         <a href="../index.php">Home</a>
         <a class="active-page" href="profile.php">Profile</a>
-        <a href="../src/logout.php">Log Out</a>
+        <a href="../api/logout.php">Log Out</a>
       </nav>
       <title>Profile</title>
     </header>

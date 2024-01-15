@@ -23,7 +23,7 @@
           <?php
           if (isset($_SESSION['loggedin'])) {
               echo '<a href="profile.php">Profile</a>';
-              echo '<a href="../src/logout.php">Log Out</a>';
+              echo '<a href="../api/logout.php">Log Out</a>';
           } else {
               echo '<a href="login.php">Log In</a>';
               echo '<a class="active-page" href="registration.php">Registration</a>';
@@ -35,7 +35,7 @@
     <main>
       <div class="container">
         <h2>Registration</h2>
-        <form id="registration-form" method="post" action="../src/registration.php">
+        <form id="registration-form" method="post" action="../api/registration.php">
           <label for="username">Username:</label>
           <input type="text" id="username" name="username" required />
 

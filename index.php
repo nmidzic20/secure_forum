@@ -1,5 +1,5 @@
 <?php
-include('./src/load_topic.php');
+include('./api/load_topic.php');
 session_start();
 
 if (!isset($_SESSION['loggedin'])) {
@@ -29,7 +29,7 @@ if (!isset($_SESSION['loggedin'])) {
             <?php
                 if (isset($_SESSION['loggedin'])) {
                     echo '<a href="html/profile.php">Profile</a>';
-                    echo '<a href="src/logout.php">Log Out</a>';
+                    echo '<a href="api/logout.php">Log Out</a>';
                 } else {
                     echo '<a href="html/login.php">Log In</a>';
                     echo '<a href="html/registration.php">Registration</a>';
@@ -675,7 +675,7 @@ if (!isset($_SESSION['loggedin'])) {
 			<input type="text" id="topic-title" placeholder="Enter your topic title...">
 			<label for="topic-content">Content:</label>
 			<textarea id="topic-content" placeholder="Enter your topic content here..."></textarea>
-			<input type="file" id="file-upload" accept=".pdf, .doc, .docx, .txt"> <!-- Add accepted file types as needed -->
+			<input type="file" id="file-upload" accept=".pdf, .doc, .docx, .txt"> 
 			<div class="button-row">
 				<button id="post-topic-btn">Post new topic</button>
 				<button id="cancel-btn">Cancel</button>

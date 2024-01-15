@@ -19,26 +19,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
   var postTopicBtn = document.getElementById("post-topic-btn");
   postTopicBtn.addEventListener("click", function () {
-    var title = document.getElementById('topic-title').value;
-    var content = document.getElementById('topic-content').value;
-    var file = document.getElementById('file-upload').files[0];
+    var title = document.getElementById("topic-title").value;
+    var content = document.getElementById("topic-content").value;
+    var file = document.getElementById("file-upload").files[0];
 
     var formData = new FormData();
-    formData.append('title', title);
-    formData.append('content', content);
-    formData.append('file', file);
+    formData.append("title", title);
+    formData.append("content", content);
+    formData.append("file", file);
 
     modal.style.display = "none";
 
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', './src/topic.php', true);
-    xhr.onload = function() {
-        if (xhr.status === 200) {
-            alert('Topic posted successfully!');
-            window.location.reload();
-        } else {
-            alert('Error posting topic. Please try again.');
-        }
+    xhr.open("POST", "./api/topic.php", true);
+    xhr.onload = function () {
+      if (xhr.status === 200) {
+        alert("Topic posted successfully!");
+        window.location.reload();
+      } else {
+        alert("Error posting topic. Please try again.");
+      }
     };
     xhr.send(formData);
   });
