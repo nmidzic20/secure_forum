@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
   postTopicBtn.addEventListener("click", function () {
     var title = document.getElementById("topic-title").value;
     var content = document.getElementById("topic-content").value;
-    var file = document.getElementById("file-upload").files[0];
+    var file = document.getElementById("file").files[0];
 
     var formData = new FormData();
     formData.append("title", title);

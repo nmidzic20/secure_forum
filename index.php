@@ -675,7 +675,7 @@ if (!isset($_SESSION['loggedin'])) {
 			<input type="text" id="topic-title" placeholder="Enter your topic title...">
 			<label for="topic-content">Content:</label>
 			<textarea id="topic-content" placeholder="Enter your topic content here..."></textarea>
-			<input type="file" id="file-upload" accept=".pdf, .doc, .docx, .txt"> 
+			<input type="file" id="file" accept=".pdf, .doc, .docx, .txt"> 
 			<div class="button-row">
 				<button id="post-topic-btn">Post new topic</button>
 				<button id="cancel-btn">Cancel</button>
