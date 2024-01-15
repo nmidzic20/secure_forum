@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS comment (
     topic_id INT UNSIGNED NOT NULL,
     user_id INT UNSIGNED NOT NULL,
     date_of_comment TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (topic_id) REFERENCES topic(id),
+    FOREIGN KEY (topic_id) REFERENCES topic(id) ON DELETE CASCADE,
     FOREIGN KEY (user_id) REFERENCES user(id)
 );
 
