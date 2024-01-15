@@ -53,6 +53,12 @@ if (!isset($_SESSION['loggedin'])) {
                         <details>
                             <summary>
                                 <?php echo $topic['title']; ?>
+								<div class="topicMenu" style="float: right">
+								<div class="topicActions">
+									<a onclick="deleteTopic(<?php echo $topic['id'] ?>)">Delete</a>
+								</div>
+									<div>#<?php echo $topic['id'] ?></div>
+								</div>
                             </summary>
 
                             <div>
@@ -135,5 +141,21 @@ if (!isset($_SESSION['loggedin'])) {
 			"background-color": "aliceblue"
 		});
 	</script>-->
+	<script>
+		function deleteTopic(id) {
+			if(window.confirm("The chosen topic and all of it's comments will be deleted. Proceed?")) {
+				fetch("api/delete-topic.php?id="+id)
+				.then(res => res.text())
+				.then((text) => {
+					var status = JSON.parse(text).status;
+					var message = JSON.parse(text).message
+					if(status == "success")
+						window.alert(message)
+					else throw new Error(message)})
+				.then(window.location.reload())
+				.catch(err => window.alert(err));
+			}
+		}
+	</script>
 </body>
 </html>
