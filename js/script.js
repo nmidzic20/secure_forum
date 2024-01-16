@@ -22,11 +22,13 @@ document.addEventListener("DOMContentLoaded", function () {
     var title = document.getElementById("topic-title").value;
     var content = document.getElementById("topic-content").value;
     var file = document.getElementById("file").files[0];
+    var userId = document.getElementById("user-id").innerText;
 
     var formData = new FormData();
     formData.append("title", title);
     formData.append("content", content);
     formData.append("file", file);
+    formData.append("user_id", userId);
 
     modal.style.display = "none";
 

@@ -26,9 +26,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $title = $_POST['title'];
         $content = $_POST['content'];
+        $user_id = $_POST['user_id'];
 
-        $stmt = $pdo->prepare("INSERT INTO topic (title, content, file_path) VALUES (:title, :content, :file_path)");
-        $stmt->execute(['title' => $title, 'content' => $content, 'file_path' => $relativeTargetFilePath]);
+        $stmt = $pdo->prepare("INSERT INTO topic (title, content, file_path, user_id) VALUES (:title, :content, :file_path, :user_id)");
+        $stmt->execute(['title' => $title, 'content' => $content, 'file_path' => $relativeTargetFilePath, 'user_id' => $user_id]);
 
         echo json_encode(['status' => 'success', 'message' => 'Topic posted successfully']);
     } catch(PDOException $e) {

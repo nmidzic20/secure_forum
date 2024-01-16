@@ -18,7 +18,9 @@ CREATE TABLE IF NOT EXISTS topic (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
     content TEXT NOT NULL,
-    file_path VARCHAR(255)
+    file_path VARCHAR(255),
+    user_id INT UNSIGNED NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES user(id)
 );
 
 -- Create comment table
@@ -39,11 +41,11 @@ VALUES
     ('user', 'user@gmail.com', '123456'),
     ('johndoe', 'johndoe@gmail.com', '123456');
 
-INSERT INTO topic (title, content, file_path)
+INSERT INTO topic (title, content, file_path, user_id)
 VALUES
-    ('Android is better with Kotlin', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl vitae aliquam ultricies, nunc nisl aliquet nunc, vitae aliquam nisl nunc vitae nisl. Donec euismod, nisl vitae aliquam ultricies, nunc nisl aliquet nunc, vitae aliquam nisl nunc vitae nisl. Donec euismod, nisl vitae aliquam ultricies, nunc nisl aliquet nunc.', NULL),
-    ('Android is better with Java', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl vitae aliquam ultricies, nunc nisl aliquet nunc, vitae aliquam nisl nunc vitae nisl. Donec euismod, nisl vitae aliquam ultricies, nunc nisl aliquet nunc, vitae aliquam nisl nunc vitae nisl.', 'user_uploads/1.png'),
-    ('Android is better with Flutter', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl vitae aliquam ultricies, nunc nisl aliquet nunc, vitae aliquam nisl nunc vitae nisl.', 'user_uploads/2.exe');
+    ('Android is better with Kotlin', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl vitae aliquam ultricies, nunc nisl aliquet nunc, vitae aliquam nisl nunc vitae nisl. Donec euismod, nisl vitae aliquam ultricies, nunc nisl aliquet nunc, vitae aliquam nisl nunc vitae nisl. Donec euismod, nisl vitae aliquam ultricies, nunc nisl aliquet nunc.', NULL, 1),
+    ('Android is better with Java', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl vitae aliquam ultricies, nunc nisl aliquet nunc, vitae aliquam nisl nunc vitae nisl. Donec euismod, nisl vitae aliquam ultricies, nunc nisl aliquet nunc, vitae aliquam nisl nunc vitae nisl.', 'user_uploads/1.png', 2),
+    ('Android is better with Flutter', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl vitae aliquam ultricies, nunc nisl aliquet nunc, vitae aliquam nisl nunc vitae nisl.', 'user_uploads/2.exe', 2);
 
 INSERT INTO comment (content, file_path, topic_id, user_id)
 VALUES

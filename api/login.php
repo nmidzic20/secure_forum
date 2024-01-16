@@ -24,7 +24,8 @@ try {
 
     if ($user) {
         $_SESSION['loggedin'] = true;
-        $user_json = json_encode($user);
+        $_SESSION['userid'] = $user[0]['id'];
+        $user_json = json_encode($user['id']);
         echo "<script>var user = '$user_json'; console.log(user);</script>";
         echo "<script>window.location.href = '../index.php';</script>";
 

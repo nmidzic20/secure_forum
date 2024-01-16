@@ -54,9 +54,11 @@ if (!isset($_SESSION['loggedin'])) {
                             <summary>
                                 <?php echo $topic['title']; ?>
 								<div class="topicMenu" style="float: right">
+								<?php if ($topic['user_id'] == $_SESSION['userid']): ?>
 								<div class="topicActions">
 									<a onclick="deleteTopic(<?php echo $topic['id'] ?>)">Delete</a>
 								</div>
+								<?php endif; ?>
 									<div>#<?php echo $topic['id'] ?></div>
 								</div>
                             </summary>
@@ -165,5 +167,6 @@ if (!isset($_SESSION['loggedin'])) {
 			}
 		}
 	</script>
+	<div id="user-id" hidden><?php if(isset($_SESSION['loggedin'])) echo $_SESSION['userid']; ?></div>
 </body>
 </html>
