@@ -15,10 +15,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $pdo = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
 
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $maxFileSize = 3 * 1024 * 1024;
 
         $targetDir = "../user_uploads/";
         $fileName = basename($_FILES["file"]["name"]);
         $targetFilePath = $targetDir . $fileName;
+
+        if ($_FILES['file']['size'] > $maxFileSize) {
+            throw new PDOException('File is too large!');
+        }
+
         move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath);
 
         $relativeDir = "user_uploads/";
@@ -33,7 +39,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         echo json_encode(['status' => 'success', 'message' => 'Topic posted successfully']);
     } catch(PDOException $e) {
-        echo json_encode(['status' => 'error', 'message' => 'Error posting topic: ' . $e->getMessage()]);
+        if ($e->getMessage() === 'File is too large!') {
+            echo json_encode(['status' => 'error', 'message' => $e->getMessage()]);
+        } else {
+            echo json_encode(['status' => 'error', 'message' => 'Error posting topic: ' . $e->getMessage()]);
+        }
     }
 } else {
     echo json_encode(['status' => 'error', 'message' => 'Invalid request method']);}
