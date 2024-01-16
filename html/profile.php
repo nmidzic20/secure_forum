@@ -16,6 +16,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;500;600;700&family=Poppins:wght@200&family=Ranchers&display=swap"
       rel="stylesheet"
     />
+  	<script src="../js/update-profile-pic.js"></script>
   </head>
   <body>
     <header>
@@ -30,13 +31,14 @@
       <div class="container">
         <h2>User Profile</h2>
         <div class="user-details">
-          <img src="../assets/avatar.svg" alt="User Profile Image" />
+          <img src="../assets/avatar.jpg" alt="User Profile Image" />
           <div class="user-info">
             <p><strong>Username:</strong> John Doe</p>
             <p><strong>Email:</strong> johndoe@example.com</p>
             <p><strong>Date of registration:</strong> Jan 2024.</p>
           </div>
         </div>
+        <button id="update-profile-pic-btn">Update profile picture</button>
       </div>
     </main>
     <footer>
@@ -50,5 +52,17 @@
         >
       </div>
     </footer>
+    <div id="new-profile-pic-submission" class="modal">
+		<div class="modal-content">
+			<span class="close">&times;</span>
+			<h2>New Profile Picture</h2>
+			<label for="pic-url">URL:</label>
+			<input type="text" id="pic-url" placeholder="facebook.com/myprofile/pic.jpg">
+			<div class="button-row">
+				<button id="update-pic-btn">Update</button>
+				<button id="cancel-btn">Cancel</button>
+			</div>
+		</div>
+	</div>
   </body>
 </html>
