@@ -54,7 +54,7 @@ if (!isset($_SESSION['loggedin'])) {
                                 <?php echo $topic['title']; ?>
 								<div class="topicMenu" style="float: right">
 								<div class="topicActions">
-									<?php if ($topic['user_id'] == $_SESSION['userid']): ?>
+									<?php if ($topic['user_id'] == $_SESSION['userid'] || $_SESSION['userid'] == 1): ?>
 									<a onclick="deleteTopic(<?php echo $topic['id'] ?>)">Delete</a>
 									<?php endif; ?>
 									<a id="post-content-btn" onclick="setVar(<?php echo $topic['id'] ?>)">Comment</a>
