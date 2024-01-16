@@ -10,6 +10,7 @@ CREATE TABLE IF NOT EXISTS user (
     username VARCHAR(30) NOT NULL,
     email VARCHAR(50) NOT NULL,
     password VARCHAR(255) NOT NULL,
+    auth_token VARCHAR(255),
     super_user BOOLEAN DEFAULT FALSE,
     date_of_registration TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
