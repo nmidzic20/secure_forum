@@ -17,6 +17,7 @@
       rel="stylesheet"
     />
   	<script src="../js/update-profile-pic.js"></script>
+      <script src="../js/update-email.js"></script>
   </head>
   <body>
     <header>
@@ -39,6 +40,7 @@
           </div>
         </div>
         <button id="update-profile-pic-btn">Update profile picture</button>
+        <button id="update-profile-email-btn">Update email</button>
       </div>
     </main>
     <footer>
@@ -64,5 +66,16 @@
 			</div>
 		</div>
 	</div>
+    <div id="new-email-submission" class="modal">
+        <div class="modal-content">
+            <span class="close" id="close-email">&times;</span>
+            <h2>New Email</h2>
+            <label for="email">Email:</label>
+            <input type="text" id="email" placeholder="Email">
+            <div class="button-row">
+                <button id="update-email-btn">Update</button>
+                <button id="cancel-btn-email">Cancel</button>
+            </div>
+        </div>
   </body>
 </html>
