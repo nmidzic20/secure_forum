@@ -25,7 +25,6 @@ if (!isset($_SESSION['loggedin'])) {
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;500;600;700&family=Poppins:wght@200&family=Ranchers&display=swap" rel="stylesheet">
-	<script src="./js/script.js"></script>
 </head>
 <body>
 	<header>
@@ -54,11 +53,12 @@ if (!isset($_SESSION['loggedin'])) {
                             <summary>
                                 <?php echo $topic['title']; ?>
 								<div class="topicMenu" style="float: right">
-								<?php if ($topic['user_id'] == $_SESSION['userid']): ?>
 								<div class="topicActions">
+									<?php if ($topic['user_id'] == $_SESSION['userid']): ?>
 									<a onclick="deleteTopic(<?php echo $topic['id'] ?>)">Delete</a>
+									<?php endif; ?>
+									<a id="post-content-btn" onclick="setVar(<?php echo $topic['id'] ?>)">Comment</a>
 								</div>
-								<?php endif; ?>
 									<div>#<?php echo $topic['id'] ?></div>
 								</div>
                             </summary>
@@ -137,6 +137,19 @@ if (!isset($_SESSION['loggedin'])) {
 			</div>
 		</div>
 	</div>
+	<div id="new-comment-submission" class="modal">
+		<div class="modal-content">
+			<span class="close" id="close-comment-modal">&times;</span>
+			<h2>New Comment Submission</h2>
+			<label for="comment-content">Content:</label>
+			<textarea id="comment-content" placeholder="Enter your comment content here..."></textarea>
+			<input type="file" id="comment-file" accept=".pdf, .doc, .docx, .txt, .png, .jpg, .jpeg, .gif">
+			<div class="button-row">
+				<button id="post-comment-btn">Post new comment</button>
+				<button id="cancel-comment-btn">Cancel</button>
+			</div>
+		</div>
+	</div>
 	<!--<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 	<script>
 		$('.see-replies').parent('blockquote').css({
@@ -168,5 +181,6 @@ if (!isset($_SESSION['loggedin'])) {
 		}
 	</script>
 	<div id="user-id" hidden><?php if(isset($_SESSION['loggedin'])) echo $_SESSION['userid']; ?></div>
+	<script src="./js/script.js"></script>
 </body>
 </html>
