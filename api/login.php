@@ -23,9 +23,18 @@ try {
 
 
     if ($user) {
+        $authToken = bin2hex(random_bytes(16));
+
+        $updateQuery = "UPDATE user SET auth_token = ? WHERE id = ?";
+        $stmt = $pdo->prepare($updateQuery);
+        $stmt->execute([$authToken, $user[0]['id']]);
+
+
         $_SESSION['loggedin'] = true;
         $_SESSION['userid'] = $user[0]['id'];
         $user_json = json_encode($user);
+
+        echo "<script> var authToken = '$authToken'; localStorage.setItem('authToken', authToken);</script>";
         echo "<script>var user = '$user_json'; console.log(user);</script>";
         echo "<script>window.location.href = '../index.php';</script>";
 
