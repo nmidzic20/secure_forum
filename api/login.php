@@ -25,13 +25,14 @@ try {
     if ($user) {
         $_SESSION['loggedin'] = true;
         $_SESSION['userid'] = $user[0]['id'];
-        $user_json = json_encode($user['id']);
+        $user_json = json_encode($user);
         echo "<script>var user = '$user_json'; console.log(user);</script>";
         echo "<script>window.location.href = '../index.php';</script>";
 
     } else {
   
-        echo "Login failed";
+        echo "<script>alert('Login failed');</script>";
+        echo "<script>window.location.href = '../html/login.php';</script>";
     }
 
 } catch(PDOException $e) {

@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS topic (
     content TEXT NOT NULL,
     file_path VARCHAR(255),
     user_id INT UNSIGNED NOT NULL,
-    FOREIGN KEY (user_id) REFERENCES user(id)
+    FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE
 );
 
 -- Create comment table
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS comment (
     user_id INT UNSIGNED NOT NULL,
     date_of_comment TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (topic_id) REFERENCES topic(id) ON DELETE CASCADE,
-    FOREIGN KEY (user_id) REFERENCES user(id)
+    FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE
 );
 
 INSERT INTO user (username, email, password) 
