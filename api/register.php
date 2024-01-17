@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+header("Content-Type: application/json");
+
 $config = include('../database/db_config.php');
 
 $host = $config['host'];
@@ -20,7 +22,9 @@ try {
 
     if ($password !== $confirm_password) {
         $_SESSION['error'] = "registration_failed";
-        header("Location: ../html/registration.php");
+
+        echo json_encode(['status' => 'error-password', 'message' => 'Passwords do not match']);
+
         exit;
     }
 
@@ -30,18 +34,42 @@ try {
 
     if ($user) {
         $_SESSION['error'] = "registration_failed_username_exists";
-        header("Location: ../html/registration.php");
+
+        echo json_encode(['status' => 'error-username', 'message' => 'Username already exists']);
+
         exit;
     }
 
-    $stmt = $pdo->prepare("INSERT INTO user (username, password, email) VALUES (:username, :password, :email)");
-    $stmt->execute(['username' => $username, 'password' => $password, 'email' => $email]);
+    $query = makeSqlQueryFromFormData();
+
+    $stmt = $pdo->query($query);
 
     $_SESSION['loggedin'] = true;
 
-    header("Location: ../index.php");
-
-    exit;
+    echo json_encode(['status' => 'success', 'message' => 'Registration successful']);
 } catch(PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
+}
+
+function makeSqlQueryFromFormData(): string
+{
+    $sql_insert = "INSERT INTO user (";
+    $sql_values = "VALUES(";
+
+    foreach ($_POST as $key => $value) {
+        if ($key === "confirm-password") {
+            continue;
+        }
+
+        $sql_insert .= $key . ", ";
+        $sql_values .= "'" . $value . "', ";
+    }
+
+    $sql_insert = substr($sql_insert, 0, -2);
+    $sql_values = substr($sql_values, 0, -2);
+
+    $sql_insert .= ") ";
+    $sql_values .= ");";
+
+    return $sql_insert . $sql_values;
 }
