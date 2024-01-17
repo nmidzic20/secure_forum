@@ -35,7 +35,7 @@
     <main>
       <div class="container">
         <h2>Registration</h2>
-        <form id="registration-form" method="post" action="../api/registration.php">
+        <form id="registration-form" method="post" action="../api/register.php">
           <label for="username">Username:</label>
           <input type="text" id="username" name="username" required />
 
@@ -70,5 +70,34 @@
         >
       </div>
     </footer>
+    <script>
+        document.getElementById('registration-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            let formData = new FormData(event.target);
+
+            console.log(formData);
+
+            fetch('../api/register.php', {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if(data.status === 'success') {
+                        window.location.replace("../index.php");
+                    } else if (data.status === 'error-password') {
+                        alert("Passwords do not match. Please try again.");
+                    } else if (data.status === 'error-username') {
+                        alert("Username already exists. Please try again");
+                    } else {
+                        alert("Error registering. Please try again.");
+                    }
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+        });
+    </script>
   </body>
 </html>
